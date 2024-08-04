@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 3000;
 const DB = process.env.MONGO_ULI;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://expensetracker-frontend-sigma.vercel.app/"],
+  method: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(cookieParser());
 
