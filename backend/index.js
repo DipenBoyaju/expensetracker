@@ -16,27 +16,22 @@ app.use(cookieParser());
 
 async function startServer() {
   try {
-    await mongoose.connect(DB)
+    await mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log('Database is connected');
 
     app.listen(PORT, () => {
-      console.log('Srerver is live');
-    })
-
+      console.log(`Server is live on port ${PORT}`);
+    });
   } catch (error) {
-    console.log(error);
-
+    console.error('Failed to connect to the database or start server', error);
   }
 }
+
 
 startServer();
 
 //routes
 app.use('/api/auth', authRouter)
-
-app.get('/api/test', (req, res) => {
-  res.json({ message: 'Test endpoint working' });
-});
 
 
 app.use((req, res) => {
