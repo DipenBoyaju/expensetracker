@@ -33,7 +33,12 @@ startServer();
 //routes
 app.use('/api/auth', authRouter)
 
-
+app.use('/', (req, res) => {
+  res.status(400).json({
+    status: 'success',
+    message: 'welcome to my server'
+  })
+})
 app.use((req, res) => {
   res.status(400).json({
     status: 'error',
