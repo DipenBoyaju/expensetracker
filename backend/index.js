@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const DB = process.env.MONGO_ULI;
 
 const app = express();
