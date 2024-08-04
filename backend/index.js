@@ -11,7 +11,7 @@ const DB = process.env.MONGO_ULI;
 
 const app = express();
 app.use(cors({
-  origin: ["https://expensetracker-frontend-sigma.vercel.app/"],
+  origin: ["https://expensetracker-frontend-sigma.vercel.app"],
   method: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
