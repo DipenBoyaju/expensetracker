@@ -34,6 +34,11 @@ startServer();
 //routes
 app.use('/api/auth', authRouter)
 
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Test endpoint working' });
+});
+
+
 app.use((req, res) => {
   res.status(400).json({
     status: 'error',
